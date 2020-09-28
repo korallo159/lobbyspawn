@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="lobbyspawn:jar">
+    <output-path>$USER_HOME$/Desktop/moje pluginy/plugins</output-path>
+    <root id="archive" name="lobbyspawn.jar">
+      <element id="module-output" name="lobbyspawn" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,10 @@
+name: LobbySpawn
+version: 1.0-SNAPSHOT
+main: koral.lobbyspawn.LobbySpawn
+api-version: 1.13
+authors: [koral]
+description: lobbyspawn
+commands:
+  setspawn:
+    permission: lobbyspawn.setspawn
+  spawn:
