@@ -1,11 +1,8 @@
 package koral.lobbyspawn;
 import java.io.IOException;
-
-import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
-import org.bukkit.plugin.Plugin;
 import org.bukkit.World;
 import org.bukkit.Location;
 import org.bukkit.Bukkit;
@@ -18,9 +15,6 @@ import java.io.File;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-import java.io.File;
-import java.util.List;
-import java.util.Objects;
 
 public final class LobbySpawn extends JavaPlugin implements Listener, CommandExecutor
 {
@@ -49,7 +43,7 @@ void spawnTeleport(Player player)
 
 @EventHandler
     public void onPlayerDamageByVoid(final EntityDamageEvent event) {
-    if (event.getCause().equals((Object) EntityDamageEvent.DamageCause.VOID) && event.getEntity() instanceof Player) {
+    if (event.getCause().equals(EntityDamageEvent.DamageCause.VOID) && event.getEntity() instanceof Player) {
         event.setCancelled(true);
         final Player player = (Player) event.getEntity();
         player.sendMessage(ChatColor.GRAY + "Przeteleportowano na spawn, ponieważ spadłeś w otchłań.");
@@ -69,12 +63,12 @@ void spawnTeleport(Player player)
             final float yaw = player.getLocation().getYaw();
             final float pitch = player.getLocation().getPitch();
             final String worldName = player.getWorld().getName();
-            this.Location.set("Location." + ".X", (Object)x);
-            this.Location.set("Location." + ".Y", (Object)y);
-            this.Location.set("Location." + ".Z", (Object)z);
-            this.Location.set("Location." + ".yaw", (Object)yaw);
-            this.Location.set("Location." + ".pitch", (Object)pitch);
-            this.Location.set("Location." + ".worldname", (Object)worldName);
+            this.Location.set("Location." + ".X",x);
+            this.Location.set("Location." + ".Y",y);
+            this.Location.set("Location." + ".Z",z);
+            this.Location.set("Location." + ".yaw",yaw);
+            this.Location.set("Location." + ".pitch",pitch);
+            this.Location.set("Location." + ".worldname",worldName);
             this.saveLocationFile();
             player.sendMessage(ChatColor.GRAY + "Ustawiono " + ChatColor.RED + "forcespawn" + ChatColor.GRAY + " w miejscu w którym aktualnie się znajdujesz");
         }
